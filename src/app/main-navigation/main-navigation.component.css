@@ -1,0 +1,28 @@
+* {
+    font-size: 16px;
+}
+
+.component-link {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 2em auto;
+}
+
+.component-link__bottom-sheet,
+.component-link__count-down-timer {
+    width: 300px;
+    height: 250px;
+    border: 1px solid #BCBCBC;
+    border-radius: 2em;
+}
+
+.component-link__bottom-sheet:hover,
+.component-link__count-down-timer:hover {
+    cursor: pointer;
+    transform: translateY(-10px);
+}
+
+.component-link__bottom-sheet:active,
+.component-link__count-down-timer:active {
+    transform: translateY(-5px);
+}
