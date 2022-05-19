@@ -5,7 +5,7 @@ import { Component, Input, OnChanges, OnInit, Output, SimpleChanges, EventEmitte
   templateUrl: './timer.component.html',
   styleUrls: ['./timer.component.css']
 })
-export class TimerComponent implements OnInit, OnChanges {
+export class TimerComponent implements OnChanges {
   @Input() timeLimit = 0;
   @Input() status = '';
 
@@ -27,9 +27,6 @@ export class TimerComponent implements OnInit, OnChanges {
     if (changes.hasOwnProperty('timeLimit')) {
       this.countDownTime = this.timeLimit;
     }
-  }
-
-  ngOnInit(): void {
   }
 
   runTimer(): void {

@@ -48,7 +48,14 @@ export class CountDownTimerComponent implements OnInit {
 
   timerEndedAlert(): void {
     console.log('Timer ended');
+    // this.ringAlarm();
     this.toggleTimer();
+  }
+
+  ringAlarm(): void {
+    const audio = new Audio();
+    audio.src = '../../assets/audio_files/service-bell-ring-14610.mp3';
+    audio.play();
   }
 
 }
