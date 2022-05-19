@@ -4,19 +4,17 @@
     <label for="time_limit">
       Time limit for the timer
     </label>
-    <input (input)="resetTimer()" type="number" name="time_limit" [(ngModel)]="inputValue">
-    <button type="button">Update time limit</button>
+    <input (input)="setTimer()" type="number" name="time_limit" [(ngModel)]="inputValue" [min]="0">
   </div>
 
-  <app-timer [timeLimit]="timeLimit" [status]="status"></app-timer>
+  <app-timer [timeLimit]="timeLimit" [status]="status" (timerEnded)="timerEndedAlert()"></app-timer>
 
   <div class="timer-control__panel">
     <button class="timer-control__panel__toggle" type="button" (click)="toggleTimer()">
       {{ status === 'PAUSE' ? 'Resume' : 'Pause' }}
     </button>
-    <button class="timer-control__panel__reset" type="button" (click)="resetTimer()"
-        [disabled]="disableResetButton">
-        Reset
+    <button class="timer-control__panel__reset" type="button" (click)="resetTimer()" [disabled]="disableResetButton">
+      Reset
     </button>
   </div>
 </div>

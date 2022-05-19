@@ -16,6 +16,10 @@
     justify-content: center;
 }
 
+.timer-control__input label {
+    margin: auto 0.5em;
+}
+
 .timer-control__panel {
     display: flex;
     justify-content: flex-end;

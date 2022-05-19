@@ -1,12 +1,14 @@
 .timer {
     width: 100%;
     height: auto;
+    margin: 2em auto;
 }
 
 .timer__interface {
     margin: auto;
     display: flex;
     justify-content: center;
+    height: 200px;
 }
 
 .timer__interface--styling {
@@ -15,4 +17,5 @@
 
 .timer__interface__value--font-styling {
     color: #FFFFFF;
+    font-size: 4.5rem;
 }

@@ -36,8 +36,19 @@ export class CountDownTimerComponent implements OnInit {
     }
   }
 
+  setTimer(): void {
+    this.timeLimit = this.inputValue >= 0 ? this.inputValue : 0;
+    console.log(this.timeLimit);
+  }
+
   resetTimer(): void {
-    this.timeLimit = this.inputValue;
+    this.timeLimit = 0;
+    this.setTimer();
+  }
+
+  timerEndedAlert(): void {
+    console.log('Timer ended');
+    this.toggleTimer();
   }
 
 }
