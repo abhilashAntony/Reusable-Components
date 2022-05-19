@@ -14,6 +14,20 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
         transform: 'translate(-50%, -100%)'
       })),
       transition('closed => opened', [
+        animate('200ms ease-out')
+      ]),
+      transition('opened => closed', [
+        animate('350ms ease-in')
+      ])
+    ]),
+    trigger('bottomSheetOverlayLoad', [
+      state('closed', style({
+        backgroundColor: 'rgb(0, 0, 0, 0)'
+      })),
+      state('opened', style({
+        backgroundColor: 'rgb(0, 0, 0, 0.5)'
+      })),
+      transition('closed => opened', [
         animate('250ms ease-out')
       ]),
       transition('opened => closed', [
