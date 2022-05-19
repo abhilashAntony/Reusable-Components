@@ -4,9 +4,11 @@
     <label for="time_limit">
       Time limit for the timer
     </label>
-    <input type="number" name="time_limit" [(ngModel)]="inputValue">
+    <input (input)="resetTimer()" type="number" name="time_limit" [(ngModel)]="inputValue">
     <button type="button">Update time limit</button>
   </div>
+
+  <app-timer [timeLimit]="timeLimit" [status]="status"></app-timer>
 
   <div class="timer-control__panel">
     <button class="timer-control__panel__toggle" type="button" (click)="toggleTimer()">

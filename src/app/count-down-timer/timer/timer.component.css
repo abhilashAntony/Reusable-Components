@@ -1,0 +1,18 @@
+.timer {
+    width: 100%;
+    height: auto;
+}
+
+.timer__interface {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.timer__interface--styling {
+    background-color: #214397;
+}
+
+.timer__interface__value--font-styling {
+    color: #FFFFFF;
+}
