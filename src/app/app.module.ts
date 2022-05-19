@@ -10,6 +10,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { MainNavigationComponent } from './main-navigation/main-navigation.component';
 import { FormsModule } from '@angular/forms';
 import { TimerComponent } from './count-down-timer/timer/timer.component';
+import { ClickTriggerDirective } from './shared-directives/click-trigger/click-trigger.directive';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { TimerComponent } from './count-down-timer/timer/timer.component';
     CountDownTimerComponent,
     MainPageComponent,
     MainNavigationComponent,
-    TimerComponent
+    TimerComponent,
+    ClickTriggerDirective
   ],
   imports: [
     BrowserModule,

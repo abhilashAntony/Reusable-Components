@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
@@ -14,29 +14,32 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
         transform: 'translate(-50%, -100%)'
       })),
       transition('closed => opened', [
-        animate('200ms ease-in')
+        animate('250ms ease-out')
       ]),
       transition('opened => closed', [
-        animate('200ms ease-in')
+        animate('350ms ease-in')
       ])
     ])
   ]
 })
 export class BottomSheetComponent implements OnInit, AfterViewInit {
-  loadPage = 'closed';
+  @Output() bottomSheetClosed = new EventEmitter();
+  pageState = 'closed';
   constructor() { }
 
   ngOnInit(): void {
+    console.log('something')
   }
 
   ngAfterViewInit(): void {
     setTimeout(() => {
-      this.loadPage = 'opened';
+      this.pageState = 'opened';
     }, 200)
   }
 
-  toggleLoadPage(): void {
-    this.loadPage = this.loadPage === 'opened' ? 'closed' : 'opened'
+  closePage(): void {
+    this.pageState = 'closed';
+    this.bottomSheetClosed.emit('closed');
   }
 
 }

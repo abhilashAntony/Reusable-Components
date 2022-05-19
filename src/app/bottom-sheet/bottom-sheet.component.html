@@ -1,4 +1,5 @@
-<div class="bottom-sheet--overlay">
-    <button (click)="toggleLoadPage()">click</button>
-    <div class="bottom-sheet__element" [@bottomSheetLoad]="loadPage"></div>
-</div>
+<div class="bottom-sheet--overlay" (click)="closePage()"></div>
+<ng-container *ngTemplateOutlet="bottomSheetRef"></ng-container>
+<ng-template #bottomSheetRef>
+    <div class="bottom-sheet__element" [@bottomSheetLoad]="pageState"></div>
+</ng-template>
