@@ -1,1 +1,4 @@
-<p>bottom-sheet works!</p>
+<div class="bottom-sheet--overlay">
+    <button (click)="toggleLoadPage()">click</button>
+    <div class="bottom-sheet__element" [@bottomSheetLoad]="loadPage"></div>
+</div>
