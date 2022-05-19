@@ -1,0 +1,7 @@
+<div class="bottom-sheet--overlay" [@bottomSheetOverlayLoad]="pageState"
+    (@bottomSheetOverlayLoad.done)="onAnimationEvent($event)"
+    (click)="closePage()"></div>
+<ng-container *ngTemplateOutlet="bottomSheetRef"></ng-container>
+<ng-template #bottomSheetRef>
+  <div class="bottom-sheet__element" [@bottomSheetLoad]="pageState"></div>
+</ng-template>

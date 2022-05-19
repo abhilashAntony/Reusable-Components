@@ -4,13 +4,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
-import { CountDownTimerComponent } from './count-down-timer/count-down-timer.component';
+
+
 import { MainPageComponent } from './main-page/main-page.component';
 import { MainNavigationComponent } from './main-navigation/main-navigation.component';
 import { FormsModule } from '@angular/forms';
-import { TimerComponent } from './count-down-timer/timer/timer.component';
+
 import { ClickTriggerDirective } from './shared-directives/click-trigger/click-trigger.directive';
+import { CountDownTimerComponent } from './resusable-pages/count-down-timer/count-down-timer.component';
+import { TimerComponent } from './resusable-pages/count-down-timer/timer/timer.component';
+import { BottomSheetComponent } from './resusable-pages/bottom-sheet/bottom-sheet.component';
+import { ContentPageComponent } from './resusable-pages/content-page/content-page.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,8 @@ import { ClickTriggerDirective } from './shared-directives/click-trigger/click-t
     MainPageComponent,
     MainNavigationComponent,
     TimerComponent,
-    ClickTriggerDirective
+    ClickTriggerDirective,
+    ContentPageComponent
   ],
   imports: [
     BrowserModule,

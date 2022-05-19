@@ -1,0 +1,23 @@
+.content-page {
+    margin: 2em auto;
+    padding: 1em;
+    width: 500px;
+    min-height: 150px;
+    height: auto;
+    border: 1px solid #BCBCBC;
+    border-radius: 0.5em;
+}
+
+.content-page__description {
+    width: 100%;
+    margin: 1em auto;
+}
+
+.content-page__description__content {
+    font-size: 1.125em;
+}
+
+.content-page__toggler {
+    width: 100%;
+    margin: 3em auto;
+}

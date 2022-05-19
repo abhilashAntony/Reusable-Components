@@ -1,5 +1,5 @@
-import { AfterViewInit, Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { trigger, state, style, animate, transition, AnimationEvent } from '@angular/animations';
 
 @Component({
   selector: 'app-bottom-sheet',
@@ -42,7 +42,6 @@ export class BottomSheetComponent implements OnInit, AfterViewInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log('something')
   }
 
   ngAfterViewInit(): void {
@@ -53,7 +52,13 @@ export class BottomSheetComponent implements OnInit, AfterViewInit {
 
   closePage(): void {
     this.pageState = 'closed';
-    this.bottomSheetClosed.emit('closed');
+  }
+
+  onAnimationEvent(event: AnimationEvent): void {
+    console.log(event);
+    if (event.fromState === 'opened' && event.toState === 'closed') {
+      this.bottomSheetClosed.emit('closed');
+    }
   }
 
 }
