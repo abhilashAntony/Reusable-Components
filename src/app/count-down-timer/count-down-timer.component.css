@@ -1,0 +1,27 @@
+.timer-control {
+    width: 600px;
+    height: auto;
+    margin: 2em auto;
+    border: 1px solid #BCBCBC;
+    padding: 1em;
+}
+
+.timer-control__input,
+.timer-control__panel {
+    width: 100%;
+}
+
+.timer-control__input {
+    display: flex;
+    justify-content: center;
+}
+
+.timer-control__panel {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.timer-control__panel__toggle,
+.timer-control__panel__reset {
+    margin: 1em 0.25em;
+}

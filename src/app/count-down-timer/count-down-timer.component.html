@@ -1,1 +1,20 @@
-<p>count-down-timer works!</p>
+<div class="timer-control">
+
+  <div class="timer-control__input">
+    <label for="time_limit">
+      Time limit for the timer
+    </label>
+    <input type="number" name="time_limit" [(ngModel)]="inputValue">
+    <button type="button">Update time limit</button>
+  </div>
+
+  <div class="timer-control__panel">
+    <button class="timer-control__panel__toggle" type="button" (click)="toggleTimer()">
+      {{ status === 'PAUSE' ? 'Resume' : 'Pause' }}
+    </button>
+    <button class="timer-control__panel__reset" type="button" (click)="resetTimer()"
+        [disabled]="disableResetButton">
+        Reset
+    </button>
+  </div>
+</div>

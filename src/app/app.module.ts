@@ -7,6 +7,7 @@ import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
 import { CountDownTimerComponent } from './count-down-timer/count-down-timer.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { MainNavigationComponent } from './main-navigation/main-navigation.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MainNavigationComponent } from './main-navigation/main-navigation.compo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
