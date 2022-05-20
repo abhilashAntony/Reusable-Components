@@ -1,15 +1,17 @@
-<div class="content-page">
-  <div class="content-page__description">
-    <p class="content-page__description__content">
-      Click on the button below to toggle the bottom-sheet component
-    </p>
+<ng-container *ngIf="bottomSheetContent$ | async as bottomSheetContent">
+  <div class="content-page">
+    <div class="content-page__description">
+      <p class="content-page__description__content">
+        Click on the button below to toggle the bottom-sheet component
+      </p>
+    </div>
+
+    <div class="content-page__toggler">
+      <button (click)="toggleBottomSheet()">Open options</button>
+    </div>
   </div>
 
-  <div class="content-page__toggler">
-    <button (click)="toggleBottomSheet()">Open options</button>
-  </div>
-</div>
-
-<ng-container *ngIf="showBottomSheet">
-  <app-bottom-sheet (bottomSheetClosed)="toggleBottomSheet()"></app-bottom-sheet>
+  <ng-container *ngIf="showBottomSheet">
+    <app-bottom-sheet [bottomSheetContent]="bottomSheetContent" (bottomSheetClosed)="toggleBottomSheet()"></app-bottom-sheet>
+  </ng-container>
 </ng-container>

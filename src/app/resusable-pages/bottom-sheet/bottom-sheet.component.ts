@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { trigger, state, style, animate, transition, AnimationEvent } from '@angular/animations';
+import { ContentResponse } from 'src/app/interfaces/content-response';
 
 @Component({
   selector: 'app-bottom-sheet',
@@ -37,6 +38,7 @@ import { trigger, state, style, animate, transition, AnimationEvent } from '@ang
   ]
 })
 export class BottomSheetComponent implements OnInit, AfterViewInit {
+  @Input() bottomSheetContent: any = null;
   @Output() bottomSheetClosed = new EventEmitter();
   pageState = 'closed';
   constructor() { }

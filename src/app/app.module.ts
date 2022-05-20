@@ -3,12 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 
 
 import { MainPageComponent } from './main-page/main-page.component';
 import { MainNavigationComponent } from './main-navigation/main-navigation.component';
 import { FormsModule } from '@angular/forms';
+
 
 import { ClickTriggerDirective } from './shared-directives/click-trigger/click-trigger.directive';
 import { CountDownTimerComponent } from './resusable-pages/count-down-timer/count-down-timer.component';
@@ -31,7 +33,8 @@ import { ContentPageComponent } from './resusable-pages/content-page/content-pag
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

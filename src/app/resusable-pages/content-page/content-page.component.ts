@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { map, Observable } from 'rxjs';
+import { ContentData } from 'src/app/interfaces/content-data';
+import { ContentResponse } from 'src/app/interfaces/content-response';
+import { FetchContentService } from './fetch-content.service';
 
 @Component({
   selector: 'app-content-page',
@@ -7,8 +11,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContentPageComponent implements OnInit {
   showBottomSheet: boolean;
-  constructor() {
+
+  bottomSheetContent$: Observable<Array<ContentData>>;
+  constructor(private fetchContentService: FetchContentService) {
     this.showBottomSheet = false;
+    this.bottomSheetContent$ = this.fetchContentService.fetchContent().pipe(
+      map(res => res.result)
+    );
   }
 
   ngOnInit(): void {
