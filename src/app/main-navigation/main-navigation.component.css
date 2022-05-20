@@ -1,7 +1,10 @@
 .component-link {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     margin: 2em auto;
+    height: auto;
 }
 
 .component-link__bottom-sheet,
@@ -10,11 +13,12 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    width: 300px;
+    width: 280px;
     height: 250px;
-    border: 1px solid #BCBCBC;
+    border: 2px solid aqua;
     border-radius: 2em;
     padding: 0.5em;
+    margin: 2em;
     box-shadow: 2px 8px 7px 0px rgba(0,0,0,0.34);
     -webkit-box-shadow: 2px 8px 7px 0px rgba(0,0,0,0.34);
     -moz-box-shadow: 2px 8px 7px 0px rgba(0,0,0,0.34);
@@ -41,4 +45,25 @@
 .component-link__count-down-timer__title {
     font-size: 2em;
     text-align: center;
+}
+
+@media (min-width: 320px) {
+    .component-link__bottom-sheet,
+    .component-link__count-down-timer {
+        width: 280px;
+    }
+}
+
+@media (min-width: 480px) {
+    .component-link__bottom-sheet,
+    .component-link__count-down-timer {
+        width: 350px;
+    }
+}
+
+@media (min-width: 768px) {
+    .component-link {
+        flex-direction: row;
+        width: 750px;
+    }
 }
