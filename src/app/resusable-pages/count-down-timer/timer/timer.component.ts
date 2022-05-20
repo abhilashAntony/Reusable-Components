@@ -15,7 +15,6 @@ export class TimerComponent implements OnChanges {
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
     if (changes.hasOwnProperty('status') && changes['status'].previousValue) {
       if (changes['status'].currentValue === 'PLAY') {
         this.runTimer();
@@ -25,20 +24,24 @@ export class TimerComponent implements OnChanges {
     }
 
     if (changes.hasOwnProperty('timeLimit')) {
-      this.countDownTime = this.timeLimit;
+      if (this.timeLimit >=0 ) {
+        this.countDownTime = this.timeLimit;
+      }
     }
   }
 
   runTimer(): void {
-    if (this.countDownTime >=0 )
-    this.timerRef = setInterval(() => {
-      if (this.countDownTime === 0) {
-        this.timerEnded.emit('ended');
-        clearInterval(this.timerRef);
-      } else {
-        this.countDownTime -= 1;
-      }
-    }, 1000)
+    if (this.countDownTime >=0 && this.countDownTime ) { // This check prevents negative timeLimit values
+      this.timerRef = setInterval(() => {
+        if (this.countDownTime === 0) { // Ensures the timer is cleared when the time reaches zero
+          this.timerEnded.emit('ended');
+          clearInterval(this.timerRef);
+          alert('Timer has ended');
+        } else {
+          this.countDownTime -= 1;
+        }
+      }, 1000);
+    }
   }
 
   pauseTimer(): void {

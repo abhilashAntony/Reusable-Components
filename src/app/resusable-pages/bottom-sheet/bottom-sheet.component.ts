@@ -44,19 +44,20 @@ export class BottomSheetComponent implements AfterViewInit {
   constructor() { }
 
   ngAfterViewInit(): void {
+    // Triggers the opening animation after a delay
     setTimeout(() => {
       this.pageState = 'opened';
     }, 200)
   }
 
   closePage(): void {
+    // Set the animation state to 'closed' to trigger closing animation
     this.pageState = 'closed';
   }
 
   onAnimationEvent(event: AnimationEvent): void {
-    console.log(event);
     if (event.fromState === 'opened' && event.toState === 'closed') {
-      this.bottomSheetClosed.emit('closed');
+      this.bottomSheetClosed.emit('closed'); // Sends a 'closed' event to the parent to hide the component
     }
   }
 

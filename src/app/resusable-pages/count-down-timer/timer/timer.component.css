@@ -1,23 +1,29 @@
 .timer {
-    width: 100%;
+    width: 280px;
     height: auto;
     margin: 2em auto;
+    /* background-color: #14285b; */
 }
 
 .timer__interface {
     margin: auto;
     display: flex;
     justify-content: center;
-    height: 200px;
+    align-items: center;
+    width: 250px;
+    height: 250px;
+    border: 5px solid aqua;
+    border-radius: 50%;
 }
 
 .timer__interface--styling {
-    background-color: #14285b;
+    overflow: hidden;
 }
 
 .timer__interface__value--font-styling {
-    color: #FFFFFF;
+    color: #14285b;
     font-size: 4.75rem;
+    text-overflow: hidden;
 }
 
 .timer__interface__value span {

@@ -9,9 +9,10 @@ import { FetchContentService } from './fetch-content.service';
   styleUrls: ['./content-page.component.css']
 })
 export class ContentPageComponent {
-  showBottomSheet: boolean;
+  showBottomSheet: boolean; // To show or hide the bottom sheet component
 
-  bottomSheetContent$: Observable<Array<ContentData>>;
+  bottomSheetContent$: Observable<Array<ContentData>>; // Content data for the bottom sheet
+
   constructor(private fetchContentService: FetchContentService) {
     this.showBottomSheet = false;
     this.bottomSheetContent$ = this.fetchContentService.fetchContent().pipe(
@@ -20,7 +21,7 @@ export class ContentPageComponent {
   }
 
   toggleBottomSheet(): void {
-    this.showBottomSheet = !this.showBottomSheet;
+    this.showBottomSheet = !this.showBottomSheet; // Toggle bottom-sheet between show and hide
   }
 
 }

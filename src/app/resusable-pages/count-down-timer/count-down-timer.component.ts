@@ -37,19 +37,17 @@ export class CountDownTimerComponent implements OnInit {
   }
 
   setTimer(): void {
-    this.timeLimit = this.inputValue >= 0 ? this.inputValue : 0;
-    console.log(this.timeLimit);
+    this.timeLimit = this.inputValue >= 0 && this.inputValue ? this.inputValue : 0;
   }
 
   resetTimer(): void {
-    this.timeLimit = 0;
+    this.inputValue = 0;
     this.setTimer();
   }
 
   timerEndedAlert(): void {
-    console.log('Timer ended');
-    // this.ringAlarm();
     this.toggleTimer();
+    this.resetTimer();
   }
 
   ringAlarm(): void {
