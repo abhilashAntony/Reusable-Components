@@ -7,7 +7,8 @@
     <label for="time_limit">
       Enter the time limit and press resume
     </label>
-    <input class="timer-control__input__field" (input)="setTimer()" type="number" name="time_limit" [(ngModel)]="inputValue" [min]="0">
+    <input class="timer-control__input__field" (input)="setTimer()" type="number" name="time_limit"
+      [(ngModel)]="inputValue" [min]="0">
   </div>
 
   <app-timer [timeLimit]="timeLimit" [status]="status" (timerEnded)="timerEndedAlert()"></app-timer>

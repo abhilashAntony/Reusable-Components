@@ -10,6 +10,7 @@ export class FetchContentService {
 
   constructor(private http: HttpClient) { }
 
+  // Fetches the bottom-sheet content through an API call - data currently in the assets folder
   fetchContent(): Observable<ContentResponse> {
     return this.http.get<ContentResponse>('../../../assets/resources/content-page.json');
   }

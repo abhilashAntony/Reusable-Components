@@ -19,6 +19,7 @@
 
   <!-- Bottom-sheet component -->
   <ng-container *ngIf="showBottomSheet">
-    <app-bottom-sheet [bottomSheetContent]="bottomSheetContent" (bottomSheetClosed)="toggleBottomSheet()"></app-bottom-sheet>
+    <app-bottom-sheet [bottomSheetContent]="bottomSheetContent" (bottomSheetClosed)="toggleBottomSheet()">
+    </app-bottom-sheet>
   </ng-container>
 </ng-container>

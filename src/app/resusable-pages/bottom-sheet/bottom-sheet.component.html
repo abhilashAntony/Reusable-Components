@@ -1,8 +1,6 @@
 <!-- Main overlay -->
-<div class="bottom-sheet--overlay"
-  [@bottomSheetOverlayLoad]="pageState"
-  (@bottomSheetOverlayLoad.done)="onAnimationEvent($event)"
-  (click)="closePage()">
+<div class="bottom-sheet--overlay" [@bottomSheetOverlayLoad]="pageState"
+  (@bottomSheetOverlayLoad.done)="onAnimationEvent($event)" (click)="closePage()">
 </div>
 
 <!-- Template outlet for the bottom-sheet -->
@@ -12,7 +10,7 @@
 <ng-template #bottomSheetRef>
   <div class="bottom-sheet__element" [@bottomSheetLoad]="pageState">
     <ng-container *ngIf="bottomSheetContent">
-      <div class="bottom-sheet__element__content bottom-sheet__element__content--margins" 
+      <div class="bottom-sheet__element__content bottom-sheet__element__content--margins"
         *ngFor="let sheetContent of bottomSheetContent">
         <button class="bottom-sheet__element__content__btn">{{ sheetContent.text }}</button>
         <p class="bottom-sheet__element__content__description">{{ sheetContent.description }}</p>

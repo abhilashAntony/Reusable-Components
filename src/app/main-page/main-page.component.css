@@ -1,18 +1,18 @@
 .toolbar {
-    top: 0;
-    left: 0;
-    min-width: 100%;
-    width: auto;
-    min-height: 50px;
-    height: auto;
-    padding-left: 1em;
-    background-color: #214397;
-    display: flex;
-    justify-content: flex-start;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  width: auto;
+  min-height: 50px;
+  height: auto;
+  padding-left: 1em;
+  background-color: #214397;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .toolbar h2 {
-    color: #FFFFFF;
-    font-size: 2em;
-    font-weight: 600;
+  color: #FFFFFF;
+  font-size: 2em;
+  font-weight: 600;
 }
