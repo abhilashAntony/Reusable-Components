@@ -1,8 +1,11 @@
+<h2 class="route__main-page" routerLink="/">
+  &larr; Back to main page
+</h2>
 <div class="timer-control">
 
   <div class="timer-control__input">
     <label for="time_limit">
-      Time limit for the timer
+      Enter the time limit and press resume
     </label>
     <input class="timer-control__input__field" (input)="setTimer()" type="number" name="time_limit" [(ngModel)]="inputValue" [min]="0">
   </div>

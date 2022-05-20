@@ -1,3 +1,8 @@
+.route__main-page {
+  margin: 1em;
+  cursor: pointer
+}
+
 .content-page {
   margin: 2em auto;
   padding: 1em;
@@ -36,23 +41,23 @@
 }
 
 .content-page__toggler button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 @media (min-width: 320px) {
-    .content-page {
-        width: 280px;
-    }
+  .content-page {
+    width: 280px;
+  }
 }
 
 @media (min-width: 480px) {
-    .content-page {
-        width: 300px;
-    }
+  .content-page {
+    width: 300px;
+  }
 }
 
 @media (min-width: 768px) {
-    .content-page {
-        width: 450px;
-    }
+  .content-page {
+    width: 450px;
+  }
 }

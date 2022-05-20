@@ -1,9 +1,18 @@
-* {
-    font-size: 16px;
+.toolbar {
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    width: auto;
+    min-height: 50px;
+    height: auto;
+    padding-left: 1em;
+    background-color: #214397;
+    display: flex;
+    justify-content: flex-start;
 }
 
-.toolbar {
-    width: 100%;
-    height: 50px;
-    background-color: #214397;
+.toolbar h2 {
+    color: #FFFFFF;
+    font-size: 2em;
+    font-weight: 600;
 }
