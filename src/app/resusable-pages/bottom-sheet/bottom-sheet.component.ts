@@ -37,14 +37,11 @@ import { ContentResponse } from 'src/app/interfaces/content-response';
     ])
   ]
 })
-export class BottomSheetComponent implements OnInit, AfterViewInit {
+export class BottomSheetComponent implements AfterViewInit {
   @Input() bottomSheetContent: any = null;
   @Output() bottomSheetClosed = new EventEmitter();
   pageState = 'closed';
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
   ngAfterViewInit(): void {
     setTimeout(() => {
