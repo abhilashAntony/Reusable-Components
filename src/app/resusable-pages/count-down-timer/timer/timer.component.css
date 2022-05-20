@@ -17,5 +17,9 @@
 
 .timer__interface__value--font-styling {
     color: #FFFFFF;
-    font-size: 4.5rem;
+    font-size: 4.75rem;
+}
+
+.timer__interface__value span {
+    font-size: 0.5em;
 }

@@ -1,7 +1,3 @@
-* {
-    font-size: 16px;
-}
-
 .component-link {
     display: flex;
     justify-content: space-evenly;
@@ -10,19 +6,39 @@
 
 .component-link__bottom-sheet,
 .component-link__count-down-timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     width: 300px;
     height: 250px;
     border: 1px solid #BCBCBC;
     border-radius: 2em;
+    padding: 0.5em;
+    box-shadow: 2px 8px 7px 0px rgba(0,0,0,0.34);
+    -webkit-box-shadow: 2px 8px 7px 0px rgba(0,0,0,0.34);
+    -moz-box-shadow: 2px 8px 7px 0px rgba(0,0,0,0.34);
 }
 
 .component-link__bottom-sheet:hover,
 .component-link__count-down-timer:hover {
     cursor: pointer;
     transform: translateY(-10px);
+    box-shadow: 2px 17px 27px 0px rgba(0,0,0,0.34);
+    -webkit-box-shadow: 2px 17px 27px 0px rgba(0,0,0,0.34);
+    -moz-box-shadow: 2px 17px 27px 0px rgba(0,0,0,0.34);
 }
 
 .component-link__bottom-sheet:active,
 .component-link__count-down-timer:active {
     transform: translateY(-5px);
+    box-shadow: 2px 12px 11px 0px rgba(0,0,0,0.34);
+    -webkit-box-shadow: 2px 12px 11px 0px rgba(0,0,0,0.34);
+    -moz-box-shadow: 2px 12px 11px 0px rgba(0,0,0,0.34);
+}
+
+.component-link__bottom-sheet__title,
+.component-link__count-down-timer__title {
+    font-size: 2em;
+    text-align: center;
 }
