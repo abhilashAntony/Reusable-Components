@@ -1,5 +1,6 @@
 <!-- Main overlay -->
 <div class="bottom-sheet--overlay" [@bottomSheetOverlayLoad]="pageState"
+  data-testid="page-overlay"
   (@bottomSheetOverlayLoad.done)="onAnimationEvent($event)" (click)="closePage()">
 </div>
 
