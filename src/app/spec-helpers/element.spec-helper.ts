@@ -44,6 +44,13 @@ export function expectText<T>(
     text: string
 ): void {
     const element = findEl(fixture, testId);
-    const actualText = element.nativeElement.textContent;
+    const actualText = element.nativeElement.textContent.trim();
     expect(actualText).toBe(text);
+}
+
+export function findComponent<T>(
+    fixture: ComponentFixture<T>,
+    selector: string
+): DebugElement {
+    return fixture.debugElement.query(By.css(selector));
 }
