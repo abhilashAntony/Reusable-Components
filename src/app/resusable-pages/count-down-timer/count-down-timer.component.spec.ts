@@ -1,18 +1,19 @@
-import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
+import { Component, DebugElement, EventEmitter, Input, NO_ERRORS_SCHEMA, Output } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { expectText, findComponent } from 'src/app/spec-helpers/element.spec-helper';
 
 import { CountDownTimerComponent } from './count-down-timer.component';
+import { TimerComponent } from './timer/timer.component';
 
-fdescribe('CountDownTimerComponent', () => {
+describe('CountDownTimerComponent', () => {
   let component: CountDownTimerComponent;
   let fixture: ComponentFixture<CountDownTimerComponent>;
   let debugElement: DebugElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CountDownTimerComponent ],
+      declarations: [ CountDownTimerComponent, FakeTimerComponent ],
       schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
@@ -44,51 +45,86 @@ fdescribe('CountDownTimerComponent', () => {
   });
 
   it('renders timer component - without utility', () => {
-    const timerComponent = debugElement.query(By.css('app-timer'));
-    expect(timerComponent).withContext('Child component not found').toBeTruthy();
+    const timerEl = debugElement.query(By.directive(FakeTimerComponent));
+    const timerComponent: TimerComponent = timerEl.componentInstance;
+    expect(timerComponent).toBeTruthy();
   });
 
-  it('renders the timer component - with utility', () => {
-    const timerComponent = findComponent(fixture, 'app-timer');
-    expect(timerComponent).withContext('Child component not found').toBeTruthy();
-  });
+  // it('renders the timer component - with utility', () => {
+  //   const timerComponent = findComponent(fixture, 'app-timer');
+  //   expect(timerComponent).withContext('Child component not found').toBeTruthy();
+  // });
 
   it('passes a start time limit - without utility', () => {
-    const selector = 'app-timer';
-    const timerComponent = debugElement.query(By.css(selector));
-    expect(timerComponent.properties['timeLimit']).withContext('Starting value is not 10').toBe(0);
+    const timerEl = debugElement.query(By.directive(FakeTimerComponent));
+    const timerComponent: TimerComponent = timerEl.componentInstance;
+    expect(timerComponent.timeLimit).withContext('Starting value is not 10').toBe(0);
   });
 
-  it('passes a start time limit - with utility', () => {
-    const timerComponent = findComponent(fixture, 'app-timer');
-    expect(timerComponent.properties['timeLimit']).withContext('Starting value is not 10').toBe(0);
-  });
+  // it('passes a start time limit - with utility', () => {
+  //   const timerComponent = findComponent(fixture, 'app-timer');
+  //   expect(timerComponent.properties['timeLimit']).withContext('Starting value is not 10').toBe(0);
+  // });
 
   it('passes a starting status - without utility', () => {
-    const selector = 'app-timer';
-    const timerComponent = debugElement.query(By.css(selector));
-    expect(timerComponent.properties['status']).withContext('starting status not "PAUSE"').toBe('PAUSE');
+    const timerEl = debugElement.query(By.directive(FakeTimerComponent));
+    const timerComponent: TimerComponent = timerEl.componentInstance;
+    expect(timerComponent.status).withContext('starting status not "PAUSE"').toBe('PAUSE');
   });
 
-  it('passes a start status - with utility', () => {
-    const selector = 'app-timer';
-    const timerComponent = findComponent(fixture, selector);
-    expect(timerComponent.properties['status']).withContext('starting status not "PAUSE"').toBe('PAUSE')
+  // it('passes a start status - with utility', () => {
+  //   const selector = 'app-timer';
+  //   const timerComponent = findComponent(fixture, selector);
+  //   expect(timerComponent.properties['status']).withContext('starting status not "PAUSE"').toBe('PAUSE')
+  // });
+
+  describe('timer has ended', () => {
+    let timerEl: DebugElement;
+    let timerComponent: TimerComponent;
+
+    beforeEach(() => {
+      timerEl = debugElement.query(By.directive(FakeTimerComponent));
+      timerComponent = timerEl.componentInstance;
+      spyOn(component, 'timerEndedAlert');
+      timerComponent.timerEnded.emit('ended');
+    });
+
+    it('listens for timer end event - without utility', () => {
+
+      expect(component.timerEndedAlert).withContext('timerEndedAlert was not called').toHaveBeenCalledTimes(1);
+    });
+
+    it('resets the status to "PAUSE"', () => {
+      
+      expect(timerComponent.status).withContext('Error in timer end').toBe('PAUSE');
+    });
+
+    it('resets the timeLimit property to zero', () => {
+
+      expect(timerComponent.timeLimit).withContext('timeLimit is not correct').toBe(0);
+    });
   });
 
-  it('listens for timer end event - without utility', () => {
-    const selector = 'app-timer';
-    const timerComponent = debugElement.query(By.css(selector));
-    spyOn(component, 'timerEndedAlert');
-    timerComponent.triggerEventHandler('timerEnded', 'ended');
-    expect(component.timerEndedAlert).withContext('timerEndedAlert was not called').toHaveBeenCalledTimes(1);
-  });
-
-  it('listens for timer end event - with utility', () => {
-    const selector = 'app-timer';
-    const timerComponent = findComponent(fixture, selector);
-    spyOn(component, 'timerEndedAlert');
-    timerComponent.triggerEventHandler('timerEnded','ended');
-    expect(component.timerEndedAlert).withContext('timerEndedAlert was not called').toHaveBeenCalledTimes(1);
-  });
+  // it('listens for timer end event - with utility', () => {
+  //   const selector = 'app-timer';
+  //   const timerComponent = findComponent(fixture, selector);
+  //   spyOn(component, 'timerEndedAlert');
+  //   timerComponent.triggerEventHandler('timerEnded','ended');
+  //   expect(component.timerEndedAlert).withContext('timerEndedAlert was not called').toHaveBeenCalledTimes(1);
+  // });
 });
+
+@Component({
+  selector: 'app-timer',
+  template: ''
+})
+class FakeTimerComponent implements Partial<TimerComponent> {
+  @Input()
+  timeLimit?: number | undefined;
+
+  @Input()
+  status?: string | undefined;
+
+  @Output()
+  public timerEnded = new EventEmitter<string>();
+}
